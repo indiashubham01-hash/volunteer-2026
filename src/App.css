@@ -1,0 +1,34 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Staggered page load effect */
+.app-container > * {
+  animation: pageEnter 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.app-container > .hero { animation-delay: 0s; }
+.app-container > .main-content { animation-delay: 0.2s; }
+.app-container > .footer { animation-delay: 0.4s; }
+
+@keyframes pageEnter {
+  0% { opacity: 0; transform: translateY(40px) scale(0.98); filter: blur(10px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}

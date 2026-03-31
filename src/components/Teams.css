@@ -1,0 +1,103 @@
+/* Appended styles for Teams */
+.teams {
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 2;
+  padding: 6rem 0;
+}
+
+.teams h2 {
+  margin-bottom: 1rem;
+}
+
+.teams-subtitle {
+  text-align: center;
+  color: var(--accent-blue);
+  font-weight: 500;
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  perspective: 1200px;
+}
+
+.clickable-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card {
+  background-color: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.card-apply-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: var(--accent-blue);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.team-card:hover {
+  transform: rotateX(10deg) rotateY(-5deg) translateY(-10px) translateZ(20px);
+  box-shadow: 
+    20px 20px 40px -10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(37, 99, 235, 0.2) inset;
+  border-color: rgba(37, 99, 235, 0.6);
+}
+
+.team-card:hover .card-apply-hint {
+  transform: translateY(0);
+}
+
+.team-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  transform: translateZ(30px);
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-icon {
+  transform: translateZ(60px) scale(1.15);
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.team-card:hover h3, .team-card:hover p {
+  transform: translateZ(30px);
+}
+
+.team-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  transition: transform 0.3s;
+}
+
+.team-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  transition: transform 0.3s;
+}
