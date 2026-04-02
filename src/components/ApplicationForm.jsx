@@ -1,178 +1,175 @@
 import React, { useState, useEffect } from 'react';
 import './ApplicationForm.css';
 
-const ApplicationForm = ({ preselectedTeam }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    department: '',
-    usn: '',
-    year: '',
-    team: '',
-    experience: ''
-  });
+const yearOptions   = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
+const teamOptions   = [
+  { value: 'marketing',    label: '01 — Marketing Team' },
+  { value: 'sponsorship',  label: '02 — Sponsorship & Promotion' },
+  { value: 'design',       label: '03 — Design Team' },
+  { value: 'decoration',   label: '04 — Decoration Team' },
+];
 
+const EXPERIENCE_TEAMS = ['design', 'decoration'];
+
+const ApplicationForm = ({ preselectedTeam }) => {
+  const [form, setForm] = useState({
+    name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: ''
+  });
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (preselectedTeam) {
-      setFormData(prev => ({
-        ...prev,
-        team: preselectedTeam
-      }));
-    }
+    if (preselectedTeam) setForm(f => ({ ...f, team: preselectedTeam }));
   }, [preselectedTeam]);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setForm(f => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    // Simulate submission
-    console.log('Form Submitted', formData);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({
-        name: '', email: '', department: '', usn: '', year: '', team: '', experience: ''
-      });
-    }, 3000);
+      setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
+    }, 4000);
   };
 
-  const showExperience = formData.team === 'design' || formData.team === 'decoration';
+  const needsExp = EXPERIENCE_TEAMS.includes(form.team);
+  const selectedLabel = teamOptions.find(t => t.value === form.team)?.label || '';
 
   return (
-    <section id="apply" className="application section">
-      <div className="container">
-        <h2 className="section-title">Apply as Volunteer</h2>
-        <div className="form-wrapper">
+    <section id="apply" className="apply-section">
+      <div className="container apply-layout">
+        <div className="apply-left">
+          <p className="section-label">Volunteer Application</p>
+          <h2 className="section-heading">Join The Team</h2>
+          <div className="signal-line" />
+          <p className="apply-intro">
+            Fill in your details carefully. All applications are reviewed personally.
+            Shortlisted candidates will be contacted on their Acharya email.
+          </p>
+          {form.team && (
+            <div className="selected-team-panel">
+              <span className="stp-label">Applying For</span>
+              <span className="stp-value">{selectedLabel}</span>
+            </div>
+          )}
+        </div>
+
+        <div className="apply-right">
           {submitted ? (
-            <div className="success-message">
-              <h3>Application Submitted Successfully!</h3>
-              <p>We will review your application and get back to you soon.</p>
+            <div className="success-card">
+              <div className="success-icon">✓</div>
+              <h3>Application Received!</h3>
+              <p>We'll review your application and reach out to you at your Acharya email shortly.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="signup-form">
-              <div className="form-row">
-                <div className="form-group half-width">
-                  <label htmlFor="name" className="form-label">Full Name</label>
+            <form className="apply-form" onSubmit={handleSubmit} noValidate>
+              <div className="form-row two-col">
+                <div className="form-field">
+                  <label className="form-label" htmlFor="name">Full Name</label>
                   <input
-                    type="text"
-                    id="name"
-                    name="name"
                     className="form-input"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Enter full name"
+                    type="text" id="name" name="name"
+                    placeholder="Shubham Singh"
+                    value={form.name} onChange={handleChange} required
                   />
                 </div>
-                <div className="form-group half-width">
-                  <label htmlFor="email" className="form-label">Acharya Email ID</label>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="email">Acharya Email ID</label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
                     className="form-input"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    pattern=".+@acharya\.ac\.in"
-                    title="Please use your official @acharya.ac.in email id"
+                    type="email" id="email" name="email"
                     placeholder="name.usn@acharya.ac.in"
+                    pattern=".+@acharya\.ac\.in"
+                    title="Use your official @acharya.ac.in email"
+                    value={form.email} onChange={handleChange} required
                   />
                 </div>
               </div>
 
-              <div className="form-row">
-                <div className="form-group third-width">
-                  <label htmlFor="department" className="form-label">Department</label>
+              <div className="form-row two-col">
+                <div className="form-field">
+                  <label className="form-label" htmlFor="phone">Phone Number</label>
+                  <div className="phone-input-wrapper">
+                    <span className="phone-prefix">+91</span>
+                    <input
+                      className="form-input phone-field"
+                      type="tel" id="phone" name="phone"
+                      placeholder="98XXXXXXXX"
+                      pattern="[6-9][0-9]{9}"
+                      title="Enter a valid 10-digit Indian mobile number"
+                      maxLength={10}
+                      value={form.phone} onChange={handleChange} required
+                    />
+                  </div>
+                </div>
+                <div className="form-field" />
+              </div>
+
+              <div className="form-row three-col">
+                <div className="form-field">
+                  <label className="form-label" htmlFor="department">Department</label>
                   <input
-                    type="text"
-                    id="department"
-                    name="department"
                     className="form-input"
-                    value={formData.department}
-                    onChange={handleChange}
-                    required
-                    placeholder="e.g. CSE, ISE, ECE"
+                    type="text" id="department" name="department"
+                    placeholder="CSE / ECE / ISE"
+                    value={form.department} onChange={handleChange} required
                   />
                 </div>
-                <div className="form-group third-width">
-                  <label htmlFor="usn" className="form-label">USN</label>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="usn">USN</label>
                   <input
-                    type="text"
-                    id="usn"
-                    name="usn"
                     className="form-input"
-                    value={formData.usn}
-                    onChange={handleChange}
-                    required
-                    placeholder="e.g. 1AY2..."
+                    type="text" id="usn" name="usn"
+                    placeholder="1AY24..."
+                    value={form.usn} onChange={handleChange} required
                   />
                 </div>
-                <div className="form-group third-width">
-                  <label htmlFor="year" className="form-label">Year of Study</label>
-                  <select
-                    id="year"
-                    name="year"
-                    className="form-select"
-                    value={formData.year}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="" disabled>Select Year</option>
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">4th Year</option>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="year">Year of Study</label>
+                  <div className="select-wrapper">
+                    <select className="form-select" id="year" name="year" value={form.year} onChange={handleChange} required>
+                      <option value="" disabled>Select year</option>
+                      {yearOptions.map(y => <option key={y} value={y}>{y}</option>)}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div className="form-field">
+                <label className="form-label" htmlFor="team">Preferred Team</label>
+                <div className="select-wrapper">
+                  <select className="form-select" id="team" name="team" value={form.team} onChange={handleChange} required>
+                    <option value="" disabled>Select a team</option>
+                    {teamOptions.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
               </div>
 
-              <div className="form-group full-width">
-                <label htmlFor="team" className="form-label">Preferred Team</label>
-                <select
-                  id="team"
-                  name="team"
-                  className="form-select"
-                  value={formData.team}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="" disabled>Select a Team</option>
-                  <option value="marketing">Marketing Team</option>
-                  <option value="sponsorship">Sponsorship & Promotion Team</option>
-                  <option value="design">Design Team</option>
-                  <option value="decoration">Decoration Team</option>
-                </select>
-              </div>
-
-              {showExperience && (
-                <div className="form-group full-width slide-down">
-                  <label htmlFor="experience" className="form-label">
-                    Prior Experience related to {formData.team === 'design' ? 'Design' : 'Decoration'}
+              {needsExp && (
+                <div className="form-field exp-field">
+                  <label className="form-label" htmlFor="experience">
+                    Prior Experience
+                    <span className="exp-hint">(Required for {form.team === 'design' ? 'Design' : 'Decoration'} team)</span>
                   </label>
                   <textarea
-                    id="experience"
-                    name="experience"
                     className="form-textarea"
-                    value={formData.experience}
-                    onChange={handleChange}
-                    required
-                    placeholder="Briefly describe any related past work, projects, or events..."
-                  ></textarea>
+                    id="experience" name="experience"
+                    placeholder="Describe past work, projects, tools you've used, or events you contributed to..."
+                    value={form.experience} onChange={handleChange} required
+                  />
                 </div>
               )}
 
-              <div className="form-submit">
-                <button type="submit" className="btn-primary form-btn">Submit Application</button>
-              </div>
+              <button type="submit" className="btn-primary submit-btn">
+                Submit Application
+              </button>
+
+              <p className="form-note">
+                Applications are reviewed within 5 working days. Only Acharya Institute students are eligible.
+              </p>
             </form>
           )}
         </div>

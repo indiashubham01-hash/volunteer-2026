@@ -1,113 +1,233 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap');
+/* ============================================
+   ACHARYA TECH HABBA 2026 — GLOBAL DESIGN SYSTEM
+   Aesthetic: "Signal & Code" — editorial + mission control
+   ============================================ */
 
 :root {
-  --bg-primary: #050b14;
-  --bg-secondary: #0a1120;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --accent-blue: #0ea5e9;
-  --accent-blue-hover: #0284c7;
-  --border-color: #1e293b;
-  --card-shadow: 0 4px 20px -5px rgba(14, 165, 233, 0.2);
+  /* Deep space palette */
+  --space: #060a12;
+  --space-mid: #0b1220;
+  --space-lift: #101a2e;
+  --space-card: #111c30;
+  --space-border: rgba(99, 140, 196, 0.15);
+
+  /* Professional steel-blue accents — no neon */
+  --signal: #4e88c7;
+  --signal-dim: rgba(78, 136, 199, 0.12);
+  --signal-glow: rgba(78, 136, 199, 0.2);
+  --amber: #c9903c;
+  --amber-dim: rgba(201, 144, 60, 0.1);
+
+  /* Text hierarchy */
+  --text-primary: #dce8f4;
+  --text-secondary: #6b8aaa;
+  --text-muted: #384f6a;
+
+  /* Fonts */
+  --font-display: 'Syne', sans-serif;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'JetBrains Mono', monospace;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
+body {
+  background-color: var(--space);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--space); }
+::-webkit-scrollbar-thumb { background: var(--signal); border-radius: 2px; }
+
+/* Layout */
 .container {
-  max-width: 1300px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Typography styles */
-h1, h2, h3, h4 {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+}
+
+/* Typography */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--signal);
+  margin-bottom: 1rem;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  text-align: center;
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
   color: var(--text-primary);
-}
-
-.section {
-  padding: 5rem 0;
-}
-
-/* Button */
-.btn-primary {
-  background-color: var(--accent-blue);
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-blue-hover);
-}
-
-.btn-primary:disabled {
-  background-color: var(--text-secondary);
-  cursor: not-allowed;
-}
-
-/* Form inputs */
-.form-group {
+  letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
 }
 
+/* Signal line divider */
+.signal-line {
+  width: 60px;
+  height: 2px;
+  background: var(--signal);
+  margin-bottom: 2rem;
+  box-shadow: 0 0 12px var(--signal);
+}
+
+/* Form globals */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .form-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--signal);
 }
 
 .form-input,
 .form-select,
 .form-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 0.375rem;
+  background: var(--space-card);
+  border: 1px solid var(--space-border);
+  border-radius: 4px;
   color: var(--text-primary);
-  font-size: 1rem;
-  transition: border-color 0.2s ease;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  padding: 0.875rem 1rem;
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  width: 100%;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
+
+.form-input::placeholder { color: var(--text-muted); }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  outline: none;
-  border-color: var(--accent-blue);
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px var(--signal-dim), inset 0 0 20px rgba(0, 212, 255, 0.04);
 }
 
-.form-textarea {
-  resize: vertical;
-  min-height: 100px;
+.form-textarea { resize: vertical; min-height: 120px; }
+
+/* Form select arrow */
+.select-wrapper {
+  position: relative;
 }
+.select-wrapper::after {
+  content: '▼';
+  font-size: 0.6rem;
+  color: var(--signal);
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* CTA Button */
+.btn-primary {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--signal);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-out);
+  box-shadow: 0 4px 16px rgba(78, 136, 199, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.4s ease;
+}
+
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover {
+  box-shadow: 0 0 40px var(--signal-glow), 0 8px 32px -4px var(--signal-dim);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.btn-ghost {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--space-border);
+  padding: 0.9rem 2.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-out);
+}
+
+.btn-ghost:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+  box-shadow: 0 0 16px var(--signal-dim);
+}
+
+/* Staggered page-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim { animation: fadeUp 0.8s var(--ease-out) both; }
+.anim-d1 { animation-delay: 0.1s; }
+.anim-d2 { animation-delay: 0.25s; }
+.anim-d3 { animation-delay: 0.4s; }
+.anim-d4 { animation-delay: 0.55s; }
+.anim-d5 { animation-delay: 0.7s; }

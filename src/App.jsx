@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Stats from './components/Stats';
 import Teams from './components/Teams';
+import HudDivider from './components/HudDivider';
+import TechShowcase from './components/TechShowcase';
 import ApplicationForm from './components/ApplicationForm';
-import AboutTech from './components/AboutTech';
+import Footer from './components/Footer';
 import NetworkBackground from './components/NetworkBackground';
 import './App.css';
 
@@ -11,28 +15,25 @@ function App() {
 
   const handleTeamSelect = (teamId) => {
     setSelectedTeam(teamId);
-    const formSection = document.getElementById('apply');
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const el = document.getElementById('apply');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 50);
   };
 
   return (
     <>
       <NetworkBackground />
-      <div className="app-container">
+      <div className="site-wrapper">
+        <Navbar />
         <Hero />
-        <div className="main-content">
+        <Stats />
         <Teams onTeamSelect={handleTeamSelect} />
+        <HudDivider />
+        <TechShowcase />
         <ApplicationForm preselectedTeam={selectedTeam} />
-        <AboutTech />
+        <Footer />
       </div>
-      <footer className="footer">
-        <div className="container">
-          <p>&copy; 2026 Acharya Tech Habba. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
     </>
   );
 }

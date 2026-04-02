@@ -1,10 +1,9 @@
 .network-canvas {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -3;
-  background: var(--bg-primary); /* Ensures pure dark blue background */
-  pointer-events: none; /* Let all clicks pass through to the components above */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
 }

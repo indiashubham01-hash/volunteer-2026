@@ -89,7 +89,20 @@
 }
 
 @media (max-width: 768px) {
+  .about-tech {
+    padding: 4rem 0;
+  }
+  .about-tech-header h2 {
+    font-size: 2rem;
+  }
   .pillar {
     flex: 1 1 100%;
+    padding: 1.5rem;
+  }
+  .pillar-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 2.2rem;
   }
 }
