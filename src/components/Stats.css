@@ -53,3 +53,18 @@
   .stats-inner { grid-template-columns: 1fr 1fr; }
   .stat-item { padding: 2rem 1rem; }
 }
+
+.stats-note {
+  border-top: 1px solid var(--space-border);
+  padding: 1rem;
+  text-align: center;
+  background: var(--space);
+}
+
+.stats-note p {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin: 0;
+}

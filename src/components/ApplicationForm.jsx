@@ -166,10 +166,6 @@ const ApplicationForm = ({ preselectedTeam }) => {
               <button type="submit" className="btn-primary submit-btn">
                 Submit Application
               </button>
-
-              <p className="form-note">
-                Applications are reviewed within 5 working days. Only Acharya Institute students are eligible.
-              </p>
             </form>
           )}
         </div>

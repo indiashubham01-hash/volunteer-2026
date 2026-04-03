@@ -54,6 +54,9 @@ const Stats = () => {
           <StatItem key={s.label} {...s} started={started} />
         ))}
       </div>
+      <div className="stats-note">
+        <p>Applications are reviewed within 5 working days. Only Acharya Institute students are eligible.</p>
+      </div>
     </section>
   );
 };
