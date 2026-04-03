@@ -34,8 +34,8 @@
 }
 
 .logo-bracket { color: var(--text-muted); }
-.logo-accent { color: var(--signal); }
-.nav-logo:hover .logo-accent { text-shadow: 0 0 10px var(--signal); }
+.logo-accent { color: var(--primary-dim); }
+.nav-logo:hover .logo-accent { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
 .nav-links {
   display: flex;
@@ -57,16 +57,16 @@
 .nav-links a:hover { color: var(--text-primary); }
 
 .nav-cta {
-  background: var(--signal) !important;
+  background: var(--primary) !important;
   color: var(--space) !important;
   padding: 0.55rem 1.5rem;
-  border-radius: 3px;
-  box-shadow: 0 0 16px var(--signal-dim);
-  transition: box-shadow 0.25s ease, transform 0.25s ease !important;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
+  transition: all 0.25s var(--ease-bouncy) !important;
 }
 .nav-cta:hover {
-  box-shadow: 0 0 30px var(--signal-glow) !important;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-extrude-hover) !important;
 }
 
 /* Hamburger */

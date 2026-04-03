@@ -1,35 +1,54 @@
 /* ============================================
    ACHARYA TECH HABBA 2026 — GLOBAL DESIGN SYSTEM
-   Aesthetic: "Signal & Code" — editorial + mission control
+   Aesthetic: "Tactile 3D" — Matte surfaces, realistic shadow depth, no neon
    ============================================ */
 
 :root {
-  /* Deep space palette */
-  --space: #060a12;
-  --space-mid: #0b1220;
-  --space-lift: #101a2e;
-  --space-card: #111c30;
-  --space-border: rgba(99, 140, 196, 0.15);
+  /* Matte metallic/soft dark palette - Deep Black */
+  --space: #000000;
+  --space-mid: #060606;
+  --space-lift: #0e0e0e;
+  --space-card: #141414;
+  --space-border: rgba(255, 255, 255, 0.12);
 
-  /* Professional steel-blue accents — no neon */
-  --signal: #4e88c7;
-  --signal-dim: rgba(78, 136, 199, 0.12);
-  --signal-glow: rgba(78, 136, 199, 0.2);
-  --amber: #c9903c;
-  --amber-dim: rgba(201, 144, 60, 0.1);
+  /* Solid tactile accents — no glowing neon */
+  --primary: #f2f5f8;
+  --primary-dim: #cfd6dc;
+  --primary-shadow: #a8b3be;
+  
+  --accent: #5e6872;
+  --accent-light: #7a8590;
 
   /* Text hierarchy */
-  --text-primary: #dce8f4;
-  --text-secondary: #6b8aaa;
-  --text-muted: #384f6a;
+  --text-primary: #f2f5f8;
+  --text-secondary: #9ba5af;
+  --text-muted: #6b757f;
 
   /* Fonts */
-  --font-display: 'Syne', sans-serif;
-  --font-ui: 'Rajdhani', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --font-display: 'Unbounded', sans-serif;
+  --font-ui: 'Outfit', sans-serif;
+  --font-mono: monospace;
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* 3D Shadows */
+  --shadow-extrude: 
+    -4px -4px 10px rgba(255, 255, 255, 0.03),
+    6px 6px 15px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+  
+  --shadow-extrude-hover:
+    -6px -6px 15px rgba(255, 255, 255, 0.04),
+    10px 10px 25px rgba(0, 0, 0, 0.5),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.15),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.25);
+    
+  --shadow-recessed:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.04);
 }
 
 *, *::before, *::after {
@@ -55,9 +74,13 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--space); }
-::-webkit-scrollbar-thumb { background: var(--signal); border-radius: 2px; }
+::-webkit-scrollbar-thumb { 
+  background: var(--space-card); 
+  border-radius: 4px; 
+  border: 1px solid var(--space-border);
+}
 
 /* Layout */
 .container {
@@ -73,46 +96,55 @@ body {
 
 /* Typography */
 .section-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--signal);
-  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  background: var(--space-card);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: var(--shadow-extrude);
+  margin-bottom: 1.5rem;
 }
 
 .section-heading {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1.05;
   color: var(--text-primary);
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+  text-shadow: 2px 4px 6px rgba(0,0,0,0.3);
 }
 
-/* Signal line divider */
+/* 3D Divider */
 .signal-line {
-  width: 60px;
-  height: 2px;
-  background: var(--signal);
-  margin-bottom: 2rem;
-  box-shadow: 0 0 12px var(--signal);
+  width: 80px;
+  height: 4px;
+  background: var(--space-card);
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-extrude);
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Form globals */
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .form-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--signal);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
 }
 
 .form-input,
@@ -120,16 +152,17 @@ body {
 .form-textarea {
   background: var(--space-card);
   border: 1px solid var(--space-border);
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  padding: 0.875rem 1rem;
-  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s var(--ease-out);
   width: 100%;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
+  box-shadow: var(--shadow-recessed);
 }
 
 .form-input::placeholder { color: var(--text-muted); }
@@ -137,11 +170,11 @@ body {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--signal);
-  box-shadow: 0 0 0 3px var(--signal-dim), inset 0 0 20px rgba(0, 212, 255, 0.04);
+  border-color: var(--accent);
+  background: var(--space-mid);
 }
 
-.form-textarea { resize: vertical; min-height: 120px; }
+.form-textarea { resize: vertical; min-height: 140px; }
 
 /* Form select arrow */
 .select-wrapper {
@@ -150,7 +183,7 @@ body {
 .select-wrapper::after {
   content: '▼';
   font-size: 0.6rem;
-  color: var(--signal);
+  color: var(--accent-light);
   position: absolute;
   right: 1rem;
   top: 50%;
@@ -163,60 +196,65 @@ body {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: var(--signal);
-  color: #fff;
+  letter-spacing: 0.05em;
+  background: var(--primary);
+  color: var(--space);
   border: none;
-  padding: 0.9rem 2.25rem;
-  border-radius: 4px;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  transition: all 0.25s var(--ease-out);
-  box-shadow: 0 4px 16px rgba(78, 136, 199, 0.25);
+  transition: all 0.3s var(--ease-bouncy);
+  box-shadow: 
+    0 8px 15px rgba(0,0,0,0.3),
+    inset 2px 2px 5px rgba(255,255,255,0.8),
+    inset -2px -4px 6px rgba(0,0,0,0.2);
   position: relative;
-  overflow: hidden;
+  text-transform: none;
 }
 
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  transition: left 0.4s ease;
-}
-
-.btn-primary:hover::before { left: 100%; }
 .btn-primary:hover {
-  box-shadow: 0 0 40px var(--signal-glow), 0 8px 32px -4px var(--signal-dim);
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 12px 25px rgba(0,0,0,0.4),
+    inset 2px 2px 5px rgba(255,255,255,0.8),
+    inset -2px -4px 6px rgba(0,0,0,0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 5px rgba(0,0,0,0.4),
+    inset 2px 4px 8px rgba(0,0,0,0.3);
 }
 
 .btn-ghost {
-  font-family: var(--font-display);
+  font-family: var(--font-ui);
   font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: transparent;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: var(--space-card);
   color: var(--text-primary);
-  border: 1px solid var(--space-border);
-  padding: 0.9rem 2.25rem;
-  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  transition: all 0.25s var(--ease-out);
+  transition: all 0.3s var(--ease-bouncy);
+  box-shadow: var(--shadow-extrude);
 }
 
 .btn-ghost:hover {
-  border-color: var(--signal);
-  color: var(--signal);
-  box-shadow: 0 0 16px var(--signal-dim);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-extrude-hover);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.btn-ghost:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-recessed);
 }
 
 /* Staggered page-in animation */

@@ -55,7 +55,7 @@ const NetworkBackground = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,212,255,0.6)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.fill();
       }
     }
@@ -79,7 +79,7 @@ const NetworkBackground = () => {
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d < DIST) {
             const alpha = (1 - d / DIST) * 0.25;
-            ctx.strokeStyle = `rgba(0,212,255,${alpha})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${alpha * 0.8})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
