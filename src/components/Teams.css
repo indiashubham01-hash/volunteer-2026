@@ -1,38 +1,75 @@
+/* ═══════════════════════════════════
+   TEAMS — 3D lift cards on hover
+   ═══════════════════════════════════ */
+
 .teams-section {
-  padding: 7rem 0;
+  padding: 8rem 0;
   background: var(--space);
 }
 
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
+/* ── Card ── */
 .team-card {
   background: var(--space-card);
   border: 1px solid var(--space-border);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 2.25rem;
   cursor: pointer;
-  transition: all 0.35s var(--ease-bouncy);
+  transition: transform 0.35s var(--ease-bouncy), box-shadow 0.35s var(--ease-bouncy), background 0.25s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-extrude);
 }
 
+/* subtle top highlight edge */
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+/* side accent bar that appears on hover */
+.team-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 12%; bottom: 12%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--primary-faint), transparent);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .team-card:hover,
 .team-card:focus {
-  border-color: rgba(255, 255, 255, 0.15);
-  background: var(--space-mid);
-  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.16);
+  background: var(--space-raised);
+  transform: translateY(-10px);
   box-shadow: var(--shadow-extrude-hover);
   outline: none;
 }
 
+.team-card:hover::after,
+.team-card:focus::after {
+  opacity: 1;
+}
+
+.team-card:active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-extrude-lg);
+}
+
+/* ── Header row ── */
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -41,106 +78,113 @@
 
 .card-code {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
   color: var(--text-muted);
+  background: var(--space-lift);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid var(--space-border);
+  box-shadow: var(--shadow-recessed);
 }
 
-.card-icon { font-size: 1.8rem; }
+.card-icon {
+  font-size: 1.65rem;
+  transition: transform 0.35s var(--ease-bouncy);
+  filter: grayscale(0.3);
+}
+.team-card:hover .card-icon { transform: scale(1.15) rotate(-5deg); }
 
+/* ── Content ── */
 .card-title {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .card-tagline {
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent-light);
+  color: var(--primary-faint);
 }
 
 .card-desc {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.7;
   flex: 1;
 }
 
+/* ── Skill tags ── */
 .card-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
 }
 
 .skill-tag {
   font-family: var(--font-ui);
   font-weight: 600;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   border: 1px solid var(--space-border);
-  background: var(--space);
+  background: var(--space-lift);
   border-radius: 4px;
-  padding: 0.3rem 0.7rem;
-  transition: all 0.2s;
+  padding: 0.28rem 0.65rem;
+  transition: all 0.2s ease;
   box-shadow: var(--shadow-recessed);
 }
 
 .team-card:hover .skill-tag {
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.12);
   color: var(--text-secondary);
+  background: var(--space-card);
 }
 
-.card-exp-badge {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  background: var(--primary-shadow);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px;
-  padding: 0.35rem 0.75rem;
-  display: inline-block;
-  width: fit-content;
-  box-shadow: var(--shadow-extrude);
-}
-
+/* ── Apply CTA row ── */
 .card-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--space-border);
   font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: color 0.2s;
 }
 
-.team-card:hover .card-cta {
-  color: var(--primary-dim);
-}
+.team-card:hover .card-cta { color: var(--primary-dim); }
 
 .card-cta span {
   font-size: 1.1rem;
   transform: translateX(0);
   transition: transform 0.25s var(--ease-out);
+  display: inline-block;
 }
-.team-card:hover .card-cta span { transform: translateX(4px); }
+.team-card:hover .card-cta span { transform: translateX(5px); }
 
-@media (max-width: 768px) {
+/* ── Responsive ── */
+@media (max-width: 900px) {
   .teams-section { padding: 5rem 0; }
-  .teams-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .teams-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
   .team-card { padding: 1.75rem 1.5rem; }
+  .card-title { font-size: 1.1rem; }
+}
+
+@media (max-width: 600px) {
+  .teams-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .team-card { padding: 1.5rem; }
 }

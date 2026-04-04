@@ -30,7 +30,7 @@ const teams = [
     tagline: 'Make It Visual',
     desc: 'Create the visual identity of the fest — from posters and banners to digital assets and merch. Your pixels will define how 1000+ people experience ATH 2026.',
     skills: ['Figma / PS / AI', 'Brand Identity', 'Motion Graphics'],
-    needsExperience: true,
+    needsExperience: false,
   },
   {
     id: 'decoration',
@@ -40,7 +40,7 @@ const teams = [
     tagline: 'Build The Experience',
     desc: "Transform the Acharya campus. Design stage setups, creative installations, and themed environments that make attendees feel they've entered a different world.",
     skills: ['Event Theming', 'Space Design', 'Physical Installations'],
-    needsExperience: true,
+    needsExperience: false,
   },
 ];
 

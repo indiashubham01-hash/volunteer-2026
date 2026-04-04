@@ -1,20 +1,25 @@
+/* ═══════════════════════════════════
+   NAVBAR — Sticky, physical feel
+   ═══════════════════════════════════ */
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1.25rem 0;
-  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+  padding: 1.1rem 0;
+  transition: background 0.4s ease, padding 0.35s ease, border-color 0.4s ease;
   border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-  background: rgba(2, 8, 18, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom-color: var(--space-border);
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
 }
 
 .navbar-inner {
@@ -24,18 +29,18 @@
 }
 
 .nav-logo {
-  font-family: var(--font-mono);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s;
 }
+.nav-logo:hover { opacity: 0.8; }
 
 .logo-bracket { color: var(--text-muted); }
-.logo-accent { color: var(--primary-dim); }
-.nav-logo:hover .logo-accent { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.logo-accent  { color: var(--primary-dim); }
 
 .nav-links {
   display: flex;
@@ -45,28 +50,33 @@
 
 .nav-links a {
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.2s;
 }
-
 .nav-links a:hover { color: var(--text-primary); }
 
 .nav-cta {
   background: var(--primary) !important;
   color: var(--space) !important;
-  padding: 0.55rem 1.5rem;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4) !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 5px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.8) inset,
+    0 -1px 0 rgba(0,0,0,0.2) inset,
+    0 4px 12px rgba(0,0,0,0.4) !important;
   transition: all 0.25s var(--ease-bouncy) !important;
 }
 .nav-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-extrude-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.8) inset,
+    0 -1px 0 rgba(0,0,0,0.2) inset,
+    0 8px 24px rgba(0,0,0,0.5) !important;
 }
 
 /* Hamburger */
@@ -77,55 +87,46 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 6px;
   z-index: 101;
 }
 
 .hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 22px; height: 2px;
   background: var(--text-primary);
   transition: all 0.3s ease;
   border-radius: 2px;
 }
-
-.hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 @media (max-width: 768px) {
   .hamburger { display: flex; }
 
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70vw;
-    max-width: 320px;
-    height: 100vh;
-    background: var(--space-mid);
+    top: 0; right: -100%;
+    width: min(75vw, 300px);
+    height: 100dvh;
+    background: var(--space-card);
     border-left: 1px solid var(--space-border);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     gap: 2rem;
-    transition: right 0.4s var(--ease-out);
-    backdrop-filter: blur(20px);
+    transition: right 0.38s var(--ease-out);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.7);
   }
-
   .nav-links.open { right: 0; }
 
-  .nav-links a { font-size: 1.25rem; color: var(--text-primary); }
-
+  .nav-links a { font-size: 1rem; color: var(--text-primary); letter-spacing: 0.08em; }
   .nav-cta {
     width: 100%;
     text-align: center;
-    padding: 0.85rem 1.5rem !important;
+    padding: 0.9rem 1.5rem !important;
+    border-radius: 6px !important;
   }
 }

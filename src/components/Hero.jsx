@@ -41,13 +41,14 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      {/* Background geometry */}
       <div className="hero-geo" aria-hidden>
         <div className="geo-band" />
         <div className="geo-dots" />
         <div className="geo-line gl1" />
         <div className="geo-line gl2" />
         <div className="geo-line gl3" />
+        <div className="geo-corner geo-corner-tl" />
+        <div className="geo-corner geo-corner-br" />
       </div>
 
       <div className="container hero-body">

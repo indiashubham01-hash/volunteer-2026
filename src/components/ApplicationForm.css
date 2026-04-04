@@ -1,45 +1,79 @@
+/* ═══════════════════════════════════
+   APPLICATION FORM — Recessed inputs
+   ═══════════════════════════════════ */
+
 .apply-section {
-  padding: 7rem 0;
+  padding: 8rem 0;
   background: var(--space);
 }
 
 .apply-layout {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 5rem;
   align-items: start;
 }
 
-/* Left panel */
+/* ── Left panel ── */
 .apply-intro {
-  font-size: 0.97rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 2rem;
 }
 
-/* Phone field */
+/* ── Selected team panel ── */
+.selected-team-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: var(--space-card);
+  border: 1px solid var(--space-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  animation: fadeUp 0.4s var(--ease-out) both;
+  box-shadow: var(--shadow-extrude);
+  border-left: 3px solid var(--primary-faint);
+}
+
+.stp-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stp-value {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ── Phone field ── */
 .phone-input-wrapper {
   display: flex;
   align-items: stretch;
   border: 1px solid var(--space-border);
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+  box-shadow: var(--shadow-recessed);
 }
-
 .phone-input-wrapper:focus-within {
-  border-color: var(--accent);
-  background: var(--space-mid);
+  border-color: var(--primary-faint);
+  box-shadow: var(--shadow-recessed-deep), 0 0 0 2px rgba(255,255,255,0.05);
 }
 
 .phone-prefix {
   background: var(--space-card);
   color: var(--text-secondary);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 0 0.9rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   border-right: 1px solid var(--space-border);
@@ -56,55 +90,24 @@
   flex: 1;
 }
 
-
-.selected-team-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background: var(--space-card);
-  border: 1px solid var(--space-border);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  animation: fadeUp 0.4s var(--ease-out) both;
-  box-shadow: var(--shadow-extrude);
-}
-
-.stp-label {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-.stp-value {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-/* Form */
+/* ── Form ── */
 .apply-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.4rem;
 }
 
-.form-row { display: flex; gap: 1.25rem; }
-.two-col > * { flex: 1; }
-.three-col > * { flex: 1; }
+.form-row { display: flex; gap: 1.15rem; }
+.two-col > * { flex: 1; min-width: 0; }
+.three-col > * { flex: 1; min-width: 0; }
 
-.exp-field {
-  animation: fadeUp 0.4s var(--ease-out) both;
-}
+.exp-field { animation: fadeUp 0.4s var(--ease-out) both; }
 
 .exp-hint {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.1em;
-  color: var(--amber);
+  color: var(--accent-warm);
   margin-left: 0.75rem;
   text-transform: uppercase;
 }
@@ -112,42 +115,35 @@
 .submit-btn {
   width: 100%;
   padding: 1.1rem;
-  font-size: 1.05rem;
-}
-
-.form-note {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
-  text-align: center;
-  line-height: 1.6;
 }
 
-/* Success card */
+/* ── Success card ── */
 .success-card {
   background: var(--space-card);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: 10px;
+  border: 1px solid var(--space-border);
+  border-radius: 14px;
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1.25rem;
-  animation: fadeUp 0.5s var(--ease-out) both;
+  animation: scaleIn 0.5s var(--ease-out) both;
+  box-shadow: var(--shadow-extrude-lg);
 }
 
 .success-icon {
-  width: 64px; height: 64px;
-  background: var(--space);
-  border: 1px solid var(--space-border);
+  width: 68px; height: 68px;
+  background: var(--space-raised);
+  border: 1px solid var(--space-border-strong);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: var(--primary-dim);
+  color: var(--green-light);
   box-shadow: var(--shadow-extrude);
 }
 
@@ -156,25 +152,27 @@
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .success-card p {
   color: var(--text-secondary);
   font-size: 0.95rem;
   max-width: 320px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* Responsive */
+/* ── Responsive ── */
 @media (max-width: 1024px) {
-  .apply-layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+  .apply-layout { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 @media (max-width: 640px) {
   .apply-section { padding: 5rem 0; }
-  .form-row { flex-direction: column; }
-  .three-col { flex-direction: column; }
+  .form-row { flex-direction: column; gap: 1.1rem; }
+  .two-col, .three-col { flex-direction: column; }
+}
+
+@media (max-width: 440px) {
+  .apply-section { padding: 4rem 0; }
 }
