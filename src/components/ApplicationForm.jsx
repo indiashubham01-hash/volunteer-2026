@@ -65,7 +65,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               <p>We'll review your application and reach out to you at your Acharya email shortly.</p>
             </div>
           ) : (
-            <form className="apply-form" onSubmit={handleSubmit} noValidate>
+            <form action="https://send.pageclip.co/tzguV4bHgslJ8bfr7F0Zpdba4ZN1BGcr/Registration" className="pageclip-form apply-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
