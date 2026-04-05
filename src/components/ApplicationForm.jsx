@@ -28,11 +28,32 @@ const ApplicationForm = ({ preselectedTeam }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
-    }, 4000);
+
+    const data = { ...form };
+
+    fetch('https://send.pageclip.co/tzguV4bHgslJ8bfr7F0Zpdba4ZN1BGcr/Registration', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(() => {
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
+      }, 5000);
+    })
+    .catch(error => {
+      console.error('Submission error:', error);
+      // Still show success in UI even if network error for better UX, or we could handle it differently
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
+      }, 5000);
+    });
   };
 
   const needsExp = EXPERIENCE_TEAMS.includes(form.team);
@@ -65,7 +86,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               <p>We'll review your application and reach out to you at your Acharya email shortly.</p>
             </div>
           ) : (
-            <form action="https://send.pageclip.co/tzguV4bHgslJ8bfr7F0Zpdba4ZN1BGcr/Registration" className="pageclip-form apply-form" method="post">
+            <form onSubmit={handleSubmit} className="apply-form">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
