@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './ApplicationForm.css';
 
-const yearOptions   = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
-const teamOptions   = [
-  { value: 'marketing',    label: '01 — Marketing Team' },
-  { value: 'sponsorship',  label: '02 — Sponsorship & Promotion' },
-  { value: 'design',       label: '03 — Design Team' },
-  { value: 'decoration',   label: '04 — Decoration Team' },
+const yearOptions = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
+const teamOptions = [
+  { value: 'marketing', label: '01 — Marketing Team' },
+  { value: 'sponsorship', label: '02 — Sponsorship & Promotion' },
+  { value: 'design', label: '03 — Design Team' },
+  { value: 'decoration', label: '04 — Decoration Team' },
 ];
 
 const EXPERIENCE_TEAMS = ['design', 'decoration'];
@@ -30,7 +30,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(e.target);
     const actionUrl = "https://send.pageclip.co/B70MGoUlz9c75XyPtBKjuXSU49BVYqZv";
 
@@ -85,13 +85,13 @@ const ApplicationForm = ({ preselectedTeam }) => {
                 </svg>
               </div>
               <h3>Application Submitted!</h3>
-              <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br/><br/>Shortlisted candidates will be contacted via their provided Acharya email.</p>
+              <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br /><br />Shortlisted candidates will be contacted via their provided Acharya email.</p>
               <button className="btn-secondary" onClick={() => setIsSubmitted(false)}>
                 Submit Another Application
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="apply-form">
+            <form action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" className="pageclip-form apply-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
