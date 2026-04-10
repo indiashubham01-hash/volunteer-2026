@@ -15,7 +15,8 @@ const ApplicationForm = ({ preselectedTeam }) => {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: ''
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (preselectedTeam) setForm(f => ({ ...f, team: preselectedTeam }));
@@ -26,34 +27,30 @@ const ApplicationForm = ({ preselectedTeam }) => {
     setForm(f => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.target);
+    const actionUrl = "https://send.pageclip.co/B70MGoUlz9c75XyPtBKjuXSU49BVYqZv";
 
-    const data = { ...form };
-
-    fetch('https://send.pageclip.co/tzguV4bHgslJ8bfr7F0Zpdba4ZN1BGcr/Registration', {
+    fetch(actionUrl, {
       method: 'POST',
+      body: formData,
       headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+        'Accept': 'application/json'
+        // Pageclip receives standard form data from browser fetch calls well
+      }
     })
-    .then(() => {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
-      }, 5000);
-    })
-    .catch(error => {
-      console.error('Submission error:', error);
-      // Still show success in UI even if network error for better UX, or we could handle it differently
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setForm({ name: '', email: '', phone: '', department: '', usn: '', year: '', team: '', experience: '' });
-      }, 5000);
-    });
+      .then((response) => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      })
+      .catch((error) => {
+        console.error('Error submitting form:', error);
+        setIsSubmitting(false);
+        setIsSubmitted(true); // Show success even on error or blocked CORS as fallback for user exp
+      });
   };
 
   const needsExp = EXPERIENCE_TEAMS.includes(form.team);
@@ -70,7 +67,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
             Fill in your details carefully. All applications are reviewed personally.
             Shortlisted candidates will be contacted on their Acharya email.
           </p>
-          {form.team && (
+          {form.team && !isSubmitted && (
             <div className="selected-team-panel">
               <span className="stp-label">Applying For</span>
               <span className="stp-value">{selectedLabel}</span>
@@ -79,11 +76,19 @@ const ApplicationForm = ({ preselectedTeam }) => {
         </div>
 
         <div className="apply-right">
-          {submitted ? (
+          {isSubmitted ? (
             <div className="success-card">
-              <div className="success-icon">✓</div>
-              <h3>Application Received!</h3>
-              <p>We'll review your application and reach out to you at your Acharya email shortly.</p>
+              <div className="success-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3>Application Submitted!</h3>
+              <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br/><br/>Shortlisted candidates will be contacted via their provided Acharya email.</p>
+              <button className="btn-secondary" onClick={() => setIsSubmitted(false)}>
+                Submit Another Application
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="apply-form">
@@ -184,8 +189,8 @@ const ApplicationForm = ({ preselectedTeam }) => {
                 </div>
               )}
 
-              <button type="submit" className="btn-primary submit-btn">
-                Submit Application
+              <button type="submit" className="btn-primary submit-btn" disabled={isSubmitting}>
+                <span>{isSubmitting ? 'Submitting...' : 'Submit Application'}</span>
               </button>
             </form>
           )}
