@@ -32,7 +32,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.target);
-    const actionUrl = "https://send.pageclip.co/B70MGoUlz9c75XyPtBKjuXSU49BVYqZv";
+    const actionUrl = "https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration";
 
     fetch(actionUrl, {
       method: 'POST',
@@ -91,7 +91,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </button>
             </div>
           ) : (
-            <form action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" className="pageclip-form apply-form" method="post">
+            <form onSubmit={handleSubmit} action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" className="apply-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
