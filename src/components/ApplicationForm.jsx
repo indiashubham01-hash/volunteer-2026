@@ -91,7 +91,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" className="apply-form" method="post">
+            <form action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" class="pageclip-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
