@@ -87,7 +87,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </div>
               <h3>Application Submitted!</h3>
               <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br /><br />Shortlisted candidates will be contacted via their provided Acharya email.</p>
-              <button className="btn-secondary" onClick={() => setIsSubmitted(false)}>
+              <button className="btn-ghost" onClick={() => setIsSubmitted(false)}>
                 Submit Another Application
               </button>
             </div>
