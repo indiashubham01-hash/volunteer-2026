@@ -113,10 +113,10 @@ const ApplicationForm = ({ preselectedTeam }) => {
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
               </div>
-              <h3>Application Submitted!</h3>
+              <h3>Response Submitted Successfully!</h3>
               <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br /><br />Shortlisted candidates will be contacted via their provided Acharya email.</p>
               <button className="btn-ghost" onClick={() => setIsSubmitted(false)}>
-                Submit Another Application
+                Submit Another Response
               </button>
             </div>
           ) : (
