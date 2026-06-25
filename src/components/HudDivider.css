@@ -125,6 +125,7 @@
   gap: 1.2rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .readout-line {
@@ -260,9 +261,9 @@
   .hud-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
-    justify-items: center;
+    justify-items: stretch;
   }
-  .radar-wrap { width: 160px; height: 160px; }
+  .radar-wrap { width: 160px; height: 160px; justify-self: center; }
   .r2 { width: 80px; height: 80px; }
   .r3 { width: 126px; height: 126px; }
   .r4 { width: 160px; height: 160px; }
@@ -271,5 +272,5 @@
 @media (max-width: 480px) {
   .hud-divider { padding: 2rem 0; }
   .radar-wrap { display: none; }
-  .hud-inner { justify-items: start; }
+  .hud-inner { justify-items: stretch; }
 }
