@@ -92,14 +92,14 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </button>
             </div>
           ) : (
-            <form action="https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration" class="pageclip-form" method="post">
+            <form action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="pageclip-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
                   <input
                     className="form-input"
                     type="text" id="name" name="name"
-                    placeholder="Shubham Singh"
+                    placeholder="Shubham Kumar"
                     value={form.name} onChange={handleChange} required
                   />
                 </div>
@@ -197,7 +197,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
           )}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
