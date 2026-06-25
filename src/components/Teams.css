@@ -28,14 +28,17 @@
   overflow: hidden;
   box-shadow: var(--shadow-extrude);
   grid-column: span 2;
+  grid-row: 1;
 }
 
 .team-card:nth-child(4) {
   grid-column: 2 / span 2;
+  grid-row: 2;
 }
 
 .team-card:nth-child(5) {
   grid-column: 4 / span 2;
+  grid-row: 2;
 }
 
 /* subtle top highlight edge */
@@ -189,10 +192,11 @@
 @media (max-width: 900px) {
   .teams-section { padding: 5rem 0; }
   .teams-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .team-card { padding: 1.75rem 1.5rem; grid-column: auto !important; }
-  .team-card:nth-child(4) { grid-column: auto !important; }
+  .team-card { padding: 1.75rem 1.5rem; grid-column: auto !important; grid-row: auto !important; }
+  .team-card:nth-child(4) { grid-column: auto !important; grid-row: auto !important; }
   .team-card:nth-child(5) {
     grid-column: 1 / span 2 !important;
+    grid-row: auto !important;
     max-width: 500px;
     margin: 0 auto;
     width: 100%;
@@ -202,9 +206,10 @@
 
 @media (max-width: 600px) {
   .teams-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .team-card { padding: 1.5rem; grid-column: auto !important; }
+  .team-card { padding: 1.5rem; grid-column: auto !important; grid-row: auto !important; }
   .team-card:nth-child(5) {
     grid-column: auto !important;
+    grid-row: auto !important;
     max-width: 100%;
     margin: 0;
   }
