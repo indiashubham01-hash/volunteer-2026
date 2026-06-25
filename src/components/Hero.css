@@ -264,6 +264,7 @@
 
 /* Card C — back */
 .card-c {
+  display: none !important;
   width: 340px;
   background: var(--space-lift);
   border: 1px solid rgba(255,255,255,0.06);
@@ -277,6 +278,7 @@
 
 /* Card B — middle */
 .card-b {
+  display: none !important;
   width: 340px;
   background: var(--space-card);
   border: 1px solid rgba(255,255,255,0.09);
