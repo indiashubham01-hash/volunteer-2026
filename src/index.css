@@ -17,18 +17,18 @@
   --space-border-strong: rgba(255,255,255,0.18);
 
   /* ── Accent — warm platinum/silver, no neon ── */
-  --primary:      #e8eaed;
-  --primary-dim:  #c5cbd3;
-  --primary-faint:#9ba2ad;
-  --accent:       #7a8290;
-  --accent-warm:  #c2af8e;       /* subtle warm gold */
-  --accent-warm-dim: #8c7d65;
+  --primary:      #ffffff;
+  --primary-dim:  #d2d6dc;
+  --primary-faint:#cbd0d8;
+  --accent:       #acb3bf;
+  --accent-warm:  #e0d4be;       /* subtle warm gold */
+  --accent-warm-dim: #b5aa96;
 
   /* ── Text hierarchy ── */
-  --text-primary:   #f0f2f5;
-  --text-secondary: #b0b5c0;
-  --text-muted:     #808694;
-  --text-ghost:     #555a66;
+  --text-primary:   #ffffff;
+  --text-secondary: #dcdfe5;
+  --text-muted:     #acb3bf;
+  --text-ghost:     #848d9a;
 
   /* ── Status (muted, non-neon) ── */
   --green:   #3a7d5a;
