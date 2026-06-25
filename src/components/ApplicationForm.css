@@ -133,6 +133,9 @@
   gap: 1.25rem;
   animation: scaleIn 0.5s var(--ease-out) both;
   box-shadow: var(--shadow-extrude-lg);
+  max-width: 550px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .success-icon {
@@ -172,6 +175,7 @@
   .apply-section { padding: 5rem 0; }
   .form-row { flex-direction: column; gap: 1.1rem; }
   .two-col, .three-col { flex-direction: column; }
+  .success-card { padding: 3rem 1.25rem; }
 }
 
 @media (max-width: 440px) {
