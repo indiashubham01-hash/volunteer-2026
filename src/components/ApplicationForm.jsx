@@ -115,9 +115,6 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </div>
               <h3>Response Submitted Successfully!</h3>
               <p>Thank you for applying to the Acharya Tech Habba 2026 team. We have successfully received your form.<br /><br />Shortlisted candidates will be contacted via their provided Acharya email.</p>
-              <button className="btn-ghost" onClick={() => setIsSubmitted(false)}>
-                Submit Another Response
-              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="apply-form" method="post">
