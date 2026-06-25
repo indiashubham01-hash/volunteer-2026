@@ -55,21 +55,21 @@ const Hero = () => {
         {/* ── LEFT: Typography lockup ── */}
         <div className="hero-left">
           <div className="hero-overline anim anim-d1">
-            <span className="ol-badge">BigO Club</span>
+            <span className="ol-badge">The Big O</span>
             <span className="ol-sep">×</span>
-            <span className="ol-text">AIT Bangalore · 2026</span>
+            <span className="ol-text">Acharya Tech Habba 2026</span>
           </div>
 
           <h1 className="hero-h1 anim anim-d2">
             <span className="h1-row row-accent">Acharya</span>
             <span className="h1-row row-main">Tech</span>
-            <span className="h1-row row-alt">Habba</span>
+            <span className="h1-row row-alt">Habba 2026</span>
           </h1>
 
           <div className="hero-tag anim anim-d3">
             <div className="tag-mark" />
             <p className="tag-text">
-              Volunteer Recruitment — Join the team that builds the fest from the inside.
+              Volunteer Recruitment for Acharya Tech Habba 2026 — Join the team that builds the fest from the inside.
               Choose your domain. Make your mark.
             </p>
           </div>
@@ -86,7 +86,7 @@ const Hero = () => {
             </div>
             <div className="met-divider" />
             <div className="metric">
-              <span className="met-val">04</span>
+              <span className="met-val">05</span>
               <span className="met-key">Open Roles</span>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Hero = () => {
             <div className="pcard-body">
               <span className="pcard-eyebrow">Teams</span>
               <div className="pcard-teams">
-                {['Marketing', 'Sponsorship', 'Design', 'Decoration'].map((t, i) => (
+                {['Marketing', 'Sponsorship', 'Design', 'Decoration', 'Social Media'].map((t, i) => (
                   <div key={t} className="pcard-team-row">
                     <span className="pt-num">0{i + 1}</span>
                     <span className="pt-name">{t}</span>
@@ -140,9 +140,9 @@ const Hero = () => {
             </div>
             <div className="pcard-body terminal-body">
               <p><span className="t-p">$</span> ./start_recruitment.sh</p>
-              <p className="t-out">Initializing AIT 2026<span className="t-blink">_</span></p>
+              <p className="t-out">Initializing The Big O<span className="t-blink">_</span></p>
               <p className="t-out">Loading team modules...</p>
-              <p className="t-ok">✓ 4 teams ready</p>
+              <p className="t-ok">✓ 5 teams ready</p>
               <p className="t-ok">✓ Applications open</p>
               <p><span className="t-p">$</span><span className="t-blink"> _</span></p>
             </div>

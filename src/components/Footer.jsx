@@ -7,10 +7,10 @@ const Footer = () => (
       <div className="footer-brand">
         <span className="footer-logo">
           <span className="logo-bracket">[</span>
-          AIT<span className="logo-accent">2026</span>
+          TBO <span className="logo-accent">× Acharya</span>
           <span className="logo-bracket">]</span>
         </span>
-        <p>Presented by <strong className="bigo-credit">BigO Club</strong><br/>Acharya Institute of Technology<br />Bangalore, Karnataka</p>
+        <p>Presented by <strong className="bigo-credit">The Big O</strong><br/>Acharya Institute of Technology<br />Bangalore, Karnataka</p>
       </div>
 
       <nav className="footer-links">

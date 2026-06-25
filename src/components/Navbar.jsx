@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="container navbar-inner">
         <a href="#" className="nav-logo">
           <span className="logo-bracket">[</span>
-          AIT<span className="logo-accent">2026</span>
+          TBO <span className="logo-accent">× Acharya</span>
           <span className="logo-bracket">]</span>
         </a>
 

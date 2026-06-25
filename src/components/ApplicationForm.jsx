@@ -7,6 +7,7 @@ const teamOptions = [
   { value: 'sponsorship', label: '02 — Sponsorship & Promotion' },
   { value: 'design', label: '03 — Design Team' },
   { value: 'decoration', label: '04 — Decoration Team' },
+  { value: 'socialmedia', label: '05 — Social Media Team' },
 ];
 
 const EXPERIENCE_TEAMS = ['design', 'decoration'];

@@ -42,6 +42,16 @@ const teams = [
     skills: ['Event Theming', 'Space Design', 'Physical Installations'],
     needsExperience: false,
   },
+  {
+    id: 'socialmedia',
+    code: '05',
+    icon: '📱',
+    title: 'Social Media Team',
+    tagline: 'Own The Narrative',
+    desc: 'Create viral content, manage social handles, cover live events, and design engaging reels. Make the fest trend across campus.',
+    skills: ['Content Creation', 'Video Editing', 'Community Management'],
+    needsExperience: false,
+  },
 ];
 
 const Teams = ({ onTeamSelect }) => (

@@ -49,17 +49,15 @@ const HudDivider = () => (
         <div className="hud-ticker">
           <span>RECRUITMENT_2026</span>
           <span className="sep">·</span>
-          <span>BIGŌ_CLUB</span>
+          <span>THE_BIG_O</span>
           <span className="sep">·</span>
-          <span>AIT_BANGALORE</span>
-          <span className="sep">·</span>
-          <span>ACHARYA_TECH_HABBA</span>
+          <span>ACHARYA_TECH_HABBA_2026</span>
           <span className="sep">·</span>
           <span>RECRUITMENT_2026</span>
           <span className="sep">·</span>
-          <span>BIGŌ_CLUB</span>
+          <span>THE_BIG_O</span>
           <span className="sep">·</span>
-          <span>AIT_BANGALORE</span>
+          <span>ACHARYA_TECH_HABBA_2026</span>
         </div>
       </div>
 

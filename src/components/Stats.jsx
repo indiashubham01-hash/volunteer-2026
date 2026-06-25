@@ -4,7 +4,7 @@ import './Stats.css';
 const stats = [
   { value: 1000, suffix: '+', label: 'Participants' },
   { value: 20,   suffix: '+', label: 'Tech Events' },
-  { value: 4,    suffix: '',  label: 'Volunteer Teams' },
+  { value: 5,    suffix: '',  label: 'Volunteer Teams' },
   { value: 48,   suffix: 'H', label: 'Of Non-Stop Action' },
 ];
 
