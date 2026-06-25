@@ -32,25 +32,54 @@ const ApplicationForm = ({ preselectedTeam }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.target);
-    const actionUrl = e.target.action || "https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers";
+    const formKey = "yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir";
+    const formName = "volunteers";
 
-    fetch(actionUrl, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-      .then((response) => {
+    const data = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      department: form.department,
+      usn: form.usn,
+      year: form.year,
+      team: form.team,
+      experience: form.experience
+    };
+
+    if (window.Pageclip) {
+      window.Pageclip.send(formKey, formName, data, (error, response) => {
         setIsSubmitting(false);
+        if (error) {
+          console.error('Pageclip submission error:', error);
+        } else {
+          console.log('Pageclip submission success:', response);
+        }
         setIsSubmitted(true);
-      })
-      .catch((error) => {
-        console.error('Error submitting form:', error);
-        setIsSubmitting(false);
-        setIsSubmitted(true); // Show success even on error or blocked CORS as fallback for user exp
       });
+    } else {
+      console.warn('Pageclip client library not loaded, falling back to urlencoded fetch');
+      const actionUrl = e.target.action || `https://send.pageclip.co/${formKey}/${formName}`;
+      const searchParams = new URLSearchParams();
+      Object.keys(data).forEach(key => searchParams.append(key, data[key]));
+
+      fetch(actionUrl, {
+        method: 'POST',
+        body: searchParams,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        }
+      })
+        .then(() => {
+          setIsSubmitting(false);
+          setIsSubmitted(true);
+        })
+        .catch((error) => {
+          console.error('Fallback submit error:', error);
+          setIsSubmitting(false);
+          setIsSubmitted(true);
+        });
+    }
   };
 
   const needsExp = EXPERIENCE_TEAMS.includes(form.team);
