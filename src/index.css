@@ -18,17 +18,17 @@
 
   /* ── Accent — warm platinum/silver, no neon ── */
   --primary:      #ffffff;
-  --primary-dim:  #d2d6dc;
-  --primary-faint:#cbd0d8;
-  --accent:       #acb3bf;
-  --accent-warm:  #e0d4be;       /* subtle warm gold */
-  --accent-warm-dim: #b5aa96;
+  --primary-dim:  #ffffff;
+  --primary-faint:#ffffff;
+  --accent:       #ffffff;
+  --accent-warm:  #ffffff;       /* subtle warm gold */
+  --accent-warm-dim: #ffffff;
 
   /* ── Text hierarchy ── */
   --text-primary:   #ffffff;
-  --text-secondary: #dcdfe5;
-  --text-muted:     #acb3bf;
-  --text-ghost:     #848d9a;
+  --text-secondary: #ffffff;
+  --text-muted:     #ffffff;
+  --text-ghost:     #ffffff;
 
   /* ── Status (muted, non-neon) ── */
   --green:   #3a7d5a;
