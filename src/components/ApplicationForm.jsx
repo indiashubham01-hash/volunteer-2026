@@ -33,14 +33,13 @@ const ApplicationForm = ({ preselectedTeam }) => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.target);
-    const actionUrl = "https://send.pageclip.co/b7j0HAWtEROdE2NuWUQu4j7UqpDOPk5F/Registration";
+    const actionUrl = e.target.action || "https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers";
 
     fetch(actionUrl, {
       method: 'POST',
       body: formData,
       headers: {
         'Accept': 'application/json'
-        // Pageclip receives standard form data from browser fetch calls well
       }
     })
       .then((response) => {
@@ -92,7 +91,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </button>
             </div>
           ) : (
-            <form action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="pageclip-form" method="post">
+            <form onSubmit={handleSubmit} action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="apply-form" method="post">
               <div className="form-row two-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="name">Full Name</label>
@@ -197,7 +196,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
           )}
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 
