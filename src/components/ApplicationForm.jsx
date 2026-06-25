@@ -49,7 +49,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
         </div>
 
         <div className="apply-right">
-          <form action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="apply-form" method="post">
+          <form action="https://send.pageclip.co/yQkUNRpClPCpUl7Y2bVNRW3QjJhzw8Ir/volunteers" className="apply-form pageclip-form" method="post">
             <div className="form-row two-col">
               <div className="form-field">
                 <label className="form-label" htmlFor="name">Full Name</label>
@@ -147,7 +147,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
               </div>
             )}
 
-            <button type="submit" className="btn-primary submit-btn">
+            <button type="submit" className="btn-primary submit-btn pageclip-form__submit">
               <span>Submit Application</span>
             </button>
           </form>
