@@ -34,7 +34,7 @@ const HudDivider = () => (
         <div className="readout-line">
           <span className="rl-key">TEAMS</span>
           <div className="rl-bar-wrap"><div className="rl-bar" style={{width:'100%'}} /></div>
-          <span className="rl-val">04</span>
+          <span className="rl-val">05</span>
         </div>
         <div className="readout-line">
           <span className="rl-key">SLOTS</span>
