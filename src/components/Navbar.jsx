@@ -16,7 +16,13 @@ const Navbar = () => {
       <div className="container navbar-inner">
         <a href="#" className="nav-logo">
           <span className="logo-bracket">[</span>
-          TBO <span className="logo-accent">× Acharya</span>
+          <img src="/tbo-icon.png" alt="TBO Logo" className="navbar-logo-icon" />
+          <span className="logo-text-tbo">TBO</span>
+          <span className="logo-separator">×</span>
+          <span className="logo-accent">Acharya</span>
+          <div className="navbar-acharya-badge">
+            <img src="/acharya-logo.png" alt="Acharya Logo" className="navbar-logo-acharya" />
+          </div>
           <span className="logo-bracket">]</span>
         </a>
 

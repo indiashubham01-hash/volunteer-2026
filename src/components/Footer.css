@@ -23,16 +23,46 @@
   gap: 0.5rem;
 }
 
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
 }
 
-.logo-bracket { color: var(--text-muted); }
-.logo-accent  { color: var(--primary-dim); }
+.footer-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.tbo-logo-footer {
+  border-radius: 4px;
+  background: transparent;
+}
+
+.footer-logo-divider {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.acharya-badge {
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.acharya-logo-footer {
+  height: 30px;
+  width: auto;
+}
 
 .footer-brand p {
   font-family: var(--font-ui);
