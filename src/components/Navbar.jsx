@@ -21,7 +21,7 @@ const Navbar = () => {
           <span className="logo-separator">×</span>
           <span className="logo-accent">Acharya</span>
           <div className="navbar-acharya-badge">
-            <img src="/acharya-logo.png" alt="Acharya Logo" className="navbar-logo-acharya" />
+            <img src="/acharya-logo-transparent.png" alt="Acharya Logo" className="navbar-logo-acharya" />
           </div>
           <span className="logo-bracket">]</span>
         </a>

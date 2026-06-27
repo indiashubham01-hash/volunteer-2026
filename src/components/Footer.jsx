@@ -9,7 +9,7 @@ const Footer = () => (
           <img src="/tbo-logo.png" alt="The Big O Logo" className="footer-logo-img tbo-logo-footer" />
           <span className="footer-logo-divider">×</span>
           <div className="acharya-badge">
-            <img src="/acharya-logo.png" alt="Acharya Logo" className="footer-logo-img acharya-logo-footer" />
+            <img src="/acharya-logo-transparent.png" alt="Acharya Logo" className="footer-logo-img acharya-logo-footer" />
           </div>
         </div>
         <p>Presented by <strong className="bigo-credit">The Big O</strong><br/>Acharya Institute of Technology<br />Bangalore, Karnataka</p>
