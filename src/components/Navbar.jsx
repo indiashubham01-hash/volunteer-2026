@@ -27,6 +27,7 @@ const Navbar = () => {
         </a>
 
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          <a href="#about-us" onClick={() => setMenuOpen(false)}>About Club</a>
           <a href="#teams" onClick={() => setMenuOpen(false)}>Roles</a>
           <a href="#showcase" onClick={() => setMenuOpen(false)}>About Fest</a>
           <a href="#apply" className="nav-cta" onClick={() => setMenuOpen(false)}>Apply Now</a>

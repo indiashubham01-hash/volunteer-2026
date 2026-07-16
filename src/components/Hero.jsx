@@ -86,7 +86,7 @@ const Hero = () => {
             </div>
             <div className="met-divider" />
             <div className="metric">
-              <span className="met-val">05</span>
+              <span className="met-val">04</span>
               <span className="met-key">Open Roles</span>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Hero = () => {
             <div className="pcard-body">
               <span className="pcard-eyebrow">Teams</span>
               <div className="pcard-teams">
-                {['Marketing', 'Sponsorship', 'Design', 'Decoration', 'Social Media'].map((t, i) => (
+                {['Marketing', 'Design', 'Decoration', 'Social Media'].map((t, i) => (
                   <div key={t} className="pcard-team-row">
                     <span className="pt-num">0{i + 1}</span>
                     <span className="pt-name">{t}</span>
@@ -142,7 +142,7 @@ const Hero = () => {
               <p><span className="t-p">$</span> ./start_recruitment.sh</p>
               <p className="t-out">Initializing The Big O<span className="t-blink">_</span></p>
               <p className="t-out">Loading team modules...</p>
-              <p className="t-ok">✓ 5 teams ready</p>
+              <p className="t-ok">✓ 4 teams ready</p>
               <p className="t-ok">✓ Applications open</p>
               <p><span className="t-p">$</span><span className="t-blink"> _</span></p>
             </div>

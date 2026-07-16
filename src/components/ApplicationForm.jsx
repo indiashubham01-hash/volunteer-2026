@@ -4,10 +4,9 @@ import './ApplicationForm.css';
 const yearOptions = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
 const teamOptions = [
   { value: 'marketing', label: '01 — Marketing Team' },
-  { value: 'sponsorship', label: '02 — Sponsorship & Promotion' },
-  { value: 'design', label: '03 — Design Team' },
-  { value: 'decoration', label: '04 — Decoration Team' },
-  { value: 'socialmedia', label: '05 — Social Media Team' },
+  { value: 'design', label: '02 — Design Team' },
+  { value: 'decoration', label: '03 — Decoration Team' },
+  { value: 'socialmedia', label: '04 — Social Media Team' },
 ];
 
 const EXPERIENCE_TEAMS = ['design', 'decoration'];
@@ -166,7 +165,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
                   <input
                     className="form-input"
                     type="text" id="department" name="department"
-                    placeholder="CSE / ECE / ISE"
+                    placeholder="CSE / ISE / AIML / AIDS"
                     value={form.department} onChange={handleChange} required
                   />
                 </div>

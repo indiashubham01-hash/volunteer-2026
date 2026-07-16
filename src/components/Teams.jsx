@@ -20,27 +20,10 @@ const teams = [
     skills: ['Social Media', 'Content Creation', 'Campaign Strategy'],
     needsExperience: false,
   },
-  {
-    id: 'sponsorship',
-    code: '02',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="18" cy="5" r="3" />
-        <circle cx="6" cy="12" r="3" />
-        <circle cx="18" cy="19" r="3" />
-        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-      </svg>
-    ),
-    title: 'Sponsorship & Promotion',
-    tagline: 'Fuel The Machine',
-    desc: 'Connect with industry partners, pitch sponsorship packages, and build relationships that fund innovation. This is where strategy meets negotiation.',
-    skills: ['Networking', 'Business Development', 'Communication'],
-    needsExperience: false,
-  },
+
   {
     id: 'design',
-    code: '03',
+    code: '02',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9" />
@@ -55,7 +38,7 @@ const teams = [
   },
   {
     id: 'decoration',
-    code: '04',
+    code: '03',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -71,7 +54,7 @@ const teams = [
   },
   {
     id: 'socialmedia',
-    code: '05',
+    code: '04',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />

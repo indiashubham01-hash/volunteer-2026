@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
+import AboutUs from './components/AboutUs';
 import Teams from './components/Teams';
 import HudDivider from './components/HudDivider';
 import TechShowcase from './components/TechShowcase';
@@ -28,6 +29,7 @@ function App() {
         <Navbar />
         <Hero />
         <Stats />
+        <AboutUs />
         <Teams onTeamSelect={handleTeamSelect} />
         <HudDivider />
         <TechShowcase />

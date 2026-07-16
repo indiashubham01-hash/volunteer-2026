@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════
+   ABOUT US & THE BIG O SECTION
+   ═══════════════════════════════════ */
+
+.about-section {
+  padding: 8rem 0;
+  background: var(--space-mid);
+  border-top: 1px solid var(--space-border);
+  border-bottom: 1px solid var(--space-border);
+  position: relative;
+}
+
+/* Custom layout grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+/* Left Narrative Column */
+.about-narrative {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.narrative-card {
+  background: var(--space-card);
+  border: 1px solid var(--space-border);
+  border-radius: 8px;
+  padding: 2.2rem;
+  position: relative;
+  transition: transform 0.3s var(--ease-bouncy), border-color 0.3s var(--ease-smooth);
+  box-shadow: var(--shadow-extrude);
+}
+
+.narrative-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--space-border-strong);
+}
+
+/* Highlight style card for BIG O */
+.narrative-card.highlight-card {
+  border-left: 3px solid var(--accent-warm);
+}
+
+.narrative-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.narrative-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.narrative-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0.8rem;
+}
+
+.narrative-card p:last-child {
+  margin-bottom: 0;
+}
+
+.narrative-card p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.narrative-card .sub-detail {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+/* Right Why Join Column */
+.why-join-column {
+  position: sticky;
+  top: 100px;
+}
+
+.why-join-heading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.why-join-sub {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.values-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.value-card {
+  background: var(--space-lift);
+  border: 1px solid var(--space-border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-bouncy), border-color 0.25s var(--ease-smooth);
+}
+
+.value-card:hover {
+  transform: translateX(6px);
+  border-color: var(--text-muted);
+  background: var(--space-card);
+}
+
+.value-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.value-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-warm);
+  background: rgba(194, 175, 142, 0.1);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid rgba(194, 175, 142, 0.2);
+}
+
+.value-title {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.value-desc {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: 2.2rem;
+}
+
+.value-glow-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-warm);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.value-card:hover .value-glow-line {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVENESS
+   ═══════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .why-join-column {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 5rem 0;
+  }
+  .narrative-card {
+    padding: 1.5rem;
+  }
+  .value-card {
+    padding: 1.25rem;
+  }
+  .value-desc {
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+}
