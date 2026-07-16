@@ -147,6 +147,7 @@ body {
   color: var(--text-primary);
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 /* ── Divider ── */

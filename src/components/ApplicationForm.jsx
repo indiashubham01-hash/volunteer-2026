@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './ApplicationForm.css';
 
 const yearOptions = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
+const departmentOptions = [
+  'CSE', 'ISE', 'AIML', 'AIDS', 'ECE', 'MECH', 'CIVIL', 'EEE', 'MCA',
+];
 const teamOptions = [
   { value: 'marketing', label: '01 — Marketing Team' },
   { value: 'design', label: '02 — Design Team' },
@@ -162,12 +165,16 @@ const ApplicationForm = ({ preselectedTeam }) => {
               <div className="form-row three-col">
                 <div className="form-field">
                   <label className="form-label" htmlFor="department">Department</label>
-                  <input
-                    className="form-input"
-                    type="text" id="department" name="department"
-                    placeholder="CSE / ISE / AIML / AIDS"
-                    value={form.department} onChange={handleChange} required
-                  />
+                  <div className="select-wrapper">
+                    <select
+                      className="form-select"
+                      id="department" name="department"
+                      value={form.department} onChange={handleChange} required
+                    >
+                      <option value="" disabled>Select department</option>
+                      {departmentOptions.map(d => <option key={d} value={d}>{d}</option>)}
+                    </select>
+                  </div>
                 </div>
                 <div className="form-field">
                   <label className="form-label" htmlFor="usn">USN</label>
