@@ -126,7 +126,7 @@ const ApplicationForm = ({ preselectedTeam }) => {
                   <input
                     className="form-input"
                     type="text" id="name" name="name"
-                    placeholder="Shubham Kumar"
+                    placeholder="Full Name"
                     value={form.name} onChange={handleChange} required
                   />
                 </div>
