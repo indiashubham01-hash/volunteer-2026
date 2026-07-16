@@ -3,7 +3,7 @@ import './ApplicationForm.css';
 
 const yearOptions = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
 const departmentOptions = [
-  'CSE', 'ISE', 'AIML', 'AIDS', 'ECE', 'MECH', 'CIVIL', 'EEE', 'MCA',
+  'CSE', 'ISE', 'AIML', 'AIDS', 'MCA',
 ];
 const teamOptions = [
   { value: 'marketing', label: '01 — Marketing Team' },
