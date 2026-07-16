@@ -4,8 +4,8 @@ import './Stats.css';
 const stats = [
   { value: 1000, suffix: '+', label: 'Participants' },
   { value: 20,   suffix: '+', label: 'Tech Events' },
-  { value: 5,    suffix: '',  label: 'Volunteer Teams' },
-  { value: 48,   suffix: 'H', label: 'Of Non-Stop Action' },
+  { value: 4,    suffix: '',  label: 'Volunteer Teams' },
+  { value: 3,    suffix: ' Days', label: 'Event (29-31 Oct)' },
 ];
 
 function useCountUp(target, duration = 1500, started = false) {
